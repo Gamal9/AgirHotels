@@ -20,8 +20,11 @@ namespace AgirHotels.View
         public Login()
         {
             InitializeComponent();
-            NavigationViewModel vm = new NavigationViewModel();
-            BtnRegister.Command = vm.SlideFromLeftCommand;
+            EntryEmail.Completed += (Object sender, EventArgs e) =>
+            {
+                EntryPassword.Focus();
+            };
+            
         }
 
         
@@ -46,11 +49,7 @@ namespace AgirHotels.View
             LblPassword.IsVisible = false;
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
             Activ.IsRunning = true;
@@ -92,7 +91,10 @@ namespace AgirHotels.View
             return;
         }
 
-        
+        private void BtnRegister_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Register());
+        }
 
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {

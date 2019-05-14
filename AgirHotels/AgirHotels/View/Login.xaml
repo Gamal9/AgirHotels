@@ -26,7 +26,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Source="user.png" VerticalOptions="Center" Grid.Column="0" Aspect="AspectFit"/>
-                                    <Frame x:Name="FrmEmail" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
+                                    <Frame x:Name="FrmEmail" CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
                                         <Entry Grid.Column="1" TextChanged="EntryEmail_TextChanged" Focused="EntryEmail_Focused_1" VerticalOptions="Center" Unfocused="EntryEmail_Unfocused" HorizontalOptions="Fill" x:Name="EntryEmail" Placeholder="البريد الإلكترونى"/>
                                     </Frame>
                                 </Grid>
@@ -44,10 +44,10 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <Button Margin="20,0" Clicked="Button_Clicked" FontSize="Large" CornerRadius="20" Text="دخول" TextColor="White" BackgroundColor="Blue"/>
+                    <Button Margin="20,0" Clicked="Button_Clicked" x:Name="BtnLogin" FontSize="Large" CornerRadius="20" Text="دخول" TextColor="White" BackgroundColor="Blue"/>
                 </StackLayout>
                 <Grid Grid.Row="1">
-                    <Button x:Name="BtnRegister" VerticalOptions="End" HorizontalOptions="Fill" Text="حساب جديد " BackgroundColor="Green" CornerRadius="20" FontSize="Large" Margin="20" TextColor="White"/>
+                    <Button x:Name="BtnRegister" Clicked="BtnRegister_Clicked" VerticalOptions="End" HorizontalOptions="Fill" Text="حساب جديد " BackgroundColor="Green" CornerRadius="20" FontSize="Large" Margin="20" TextColor="White"/>
                 </Grid>
             </Grid>
         </Grid>

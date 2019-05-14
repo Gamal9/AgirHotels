@@ -50,20 +50,31 @@ namespace AgirHotels
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            caro.Position++;
+            if (caro.Position == 4)
+            {
+                Activ.IsRunning = true;
+                Device.BeginInvokeOnMainThread(() => App.Current.MainPage = new NavigationPage(new Login()));
+                Activ.IsRunning = false;
+            }
+            else
+            {
+                caro.Position++;
+            }
+            
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Login();
+            if(caro.Position>0)
+                caro.Position--;
         }
 
         private void Caro_PositionSelected(object sender, CarouselView.FormsPlugin.Abstractions.PositionSelectedEventArgs e)
         {
-            if (caro.Position + 1 == list.Count)
-                NextBtn.IsVisible = false;
+            if (caro.Position == 0)
+                SkipBtn.IsVisible = false;
             else
-                NextBtn.IsVisible = true;
+                SkipBtn.IsVisible = true;
         }
     }
 }

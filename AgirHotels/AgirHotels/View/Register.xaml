@@ -1,12 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="DarkBlue" NavigationPage.HasNavigationBar="False"
              x:Class="AgirHotels.View.Register">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <Grid>
+        <Image Source="LoginBack.jpg" Aspect="Fill" Opacity="0.6"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="logo.png" Aspect="AspectFill" HorizontalOptions="Center"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0">
+                    <Frame BackgroundColor="White" Opacity="0.9" CornerRadius="20" Margin="20,0">
+                        <StackLayout>
+                            <StackLayout>
+                                <Label Text="الأســــم" FontSize="Micro" TextColor="DarkBlue" x:Name="LblName" IsVisible="False"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="user.png" VerticalOptions="Center" Grid.Column="0" Aspect="AspectFit"/>
+                                    <Frame CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
+                                        <Entry Grid.Column="1" Focused="EntryName_Focused" Unfocused="EntryName_Unfocused" VerticalOptions="Center"  HorizontalOptions="Fill" x:Name="EntryName" Placeholder="الأســــم"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="البريد الإلكترونى" FontSize="Micro" TextColor="DarkBlue" x:Name="LblEmail" IsVisible="False"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="user.png" VerticalOptions="Center" Grid.Column="0" Aspect="AspectFit"/>
+                                    <Frame x:Name="FrmEmail" CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
+                                        <Entry Grid.Column="1" TextChanged="EntryEmail_TextChanged" Focused="EntryEmail_Focused" VerticalOptions="Center" Unfocused="EntryEmail_Unfocused" HorizontalOptions="Fill" x:Name="EntryEmail" Placeholder="البريد الإلكترونى"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="كلمة المرور" FontSize="Micro" TextColor="DarkBlue" x:Name="LblPassword" IsVisible="False"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="lock.png" VerticalOptions="Center" Grid.Column="0" Aspect="AspectFit"/>
+                                    <Frame x:Name="FrmMainPass" CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
+                                        <Entry IsPassword="True" TextChanged="EntryPassword_TextChanged" Focused="EntryPassword_Focused" Unfocused="EntryPassword_Unfocused" Grid.Column="1" HorizontalOptions="Fill" x:Name="EntryPassword" Placeholder="كلمة المرور"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="تأكيد كلمة المرور" FontSize="Micro" TextColor="DarkBlue" x:Name="LblConfermPassword" IsVisible="False"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="lock.png" VerticalOptions="Center" Grid.Column="0" Aspect="AspectFit"/>
+                                    <Frame x:Name="FrmPass" CornerRadius="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill" Padding="1">
+                                        <Entry IsPassword="True" Grid.Column="1" TextChanged="EntryConfiremPassword_TextChanged" HorizontalOptions="Fill" Unfocused="EntryConfiremPassword_Unfocused" Focused="EntryConfiremPassword_Focused" x:Name="EntryConfiremPassword" Placeholder="تأكيد كلمة المرور"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <Grid Grid.Row="1">
+                    <Button x:Name="BtnRegister" Clicked="BtnRegister_Clicked" VerticalOptions="End" HorizontalOptions="Fill" Text="تسجيل حساب جديد " BackgroundColor="Green" CornerRadius="20" FontSize="Large" Margin="20" TextColor="White"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <ActivityIndicator x:Name="Activ" HorizontalOptions="Center" VerticalOptions="Center" Color="DarkBlue"/>
+    </Grid>
+
 </ContentPage>

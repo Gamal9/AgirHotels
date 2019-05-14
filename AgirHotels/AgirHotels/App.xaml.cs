@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgirHotels.Helper;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,11 @@ namespace AgirHotels
         public App()
         {
             InitializeComponent();
-
-            MainPage = new PresintationPage();
+            if (AppSettings.LastUserID == 0)
+            {
+                MainPage= new PresintationPage();
+            }
+            else MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
