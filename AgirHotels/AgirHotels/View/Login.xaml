@@ -19,7 +19,7 @@
                     <Frame BackgroundColor="White" Opacity="0.9" CornerRadius="20" Margin="20,0">
                         <StackLayout>
                             <StackLayout>
-                                <Label Text="البريد الإلكترونى" FontSize="Small" TextColor="DarkBlue" x:Name="LblEmail" IsVisible="False"/>
+                                <Label Text="البريد الإلكترونى" FontSize="Micro" TextColor="DarkBlue" x:Name="LblEmail" IsVisible="False"/>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -32,7 +32,7 @@
                                 </Grid>
                             </StackLayout>
                             <StackLayout>
-                                <Label Text="كلمة المرور" FontSize="Small" TextColor="DarkBlue" x:Name="LblPassword" IsVisible="False"/>
+                                <Label Text="كلمة المرور" FontSize="Micro" TextColor="DarkBlue" x:Name="LblPassword" IsVisible="False"/>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -44,10 +44,10 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <Button Margin="20,0" Clicked="Button_Clicked" CornerRadius="20" Text="دخول" TextColor="White" BackgroundColor="Blue"/>
+                    <Button Margin="20,0" Clicked="Button_Clicked" FontSize="Large" CornerRadius="20" Text="دخول" TextColor="White" BackgroundColor="Blue"/>
                 </StackLayout>
                 <Grid Grid.Row="1">
-                    <Button VerticalOptions="End" HorizontalOptions="Center" Text="حساب جديد " BackgroundColor="DarkBlue" Clicked="Button_Clicked_1" FontSize="Large" Margin="40" TextColor="White"/>
+                    <Button x:Name="BtnRegister" VerticalOptions="End" HorizontalOptions="Fill" Text="حساب جديد " BackgroundColor="Green" CornerRadius="20" FontSize="Large" Margin="20" TextColor="White"/>
                 </Grid>
             </Grid>
         </Grid>

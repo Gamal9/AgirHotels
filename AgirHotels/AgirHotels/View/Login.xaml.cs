@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AgirHotels.ViewModel;
 
 namespace AgirHotels.View
 {
@@ -19,7 +20,8 @@ namespace AgirHotels.View
         public Login()
         {
             InitializeComponent();
-
+            NavigationViewModel vm = new NavigationViewModel();
+            BtnRegister.Command = vm.SlideFromLeftCommand;
         }
 
         
@@ -90,10 +92,7 @@ namespace AgirHotels.View
             return;
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
