@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False" BackgroundColor="White"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="AgirHotels.PresintationPage">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <cv:CarouselViewControl Grid.Row="0" AnimateTransition="False" ShowIndicators="True" PositionSelected="Caro_PositionSelected" IndicatorsShape="Circle" ShowArrows="False" IndicatorsTintColor="LightGray" CurrentPageIndicatorTintColor="DarkBlue" ItemsSource="{Binding .}" x:Name="caro">
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.4*"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="{Binding Img}" Aspect="AspectFit"/>
+                        <Label Grid.Row="1" Text="{Binding Text}" FontSize="Large" HorizontalTextAlignment="Center" TextColor="DarkBlue" VerticalOptions="Start"/>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+        <Grid HorizontalOptions="Fill" Grid.Row="1">
+            <Label HorizontalOptions="Fill" HeightRequest="1" VerticalOptions="Start" BackgroundColor="DarkSlateBlue"/>
+            <StackLayout x:Name="NextBtn" VerticalOptions="Center" BackgroundColor="White"  HorizontalOptions="Start" Padding="10" IsVisible="{Binding Visibality}" Margin="10">
+                <Label Text="Next" VerticalOptions="Center" FontSize="18" TextColor="DarkBlue"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout x:Name="SkipBtn" VerticalOptions="Center" BackgroundColor="White" HorizontalOptions="End" Padding="10" IsVisible="{Binding Visibality}" Margin="10">
+                <Label Text="Skip" VerticalOptions="Center" FontSize="18" TextColor="DarkBlue"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </Grid>
+
+</ContentPage>
